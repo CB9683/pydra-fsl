@@ -136,6 +136,7 @@ dmypy.json
 
 # Mac garbarge
 .DS_store
+_version.py
 
 /pydra/tasks/fsl/auto
 /pydra/tasks/fsl/_version.py
