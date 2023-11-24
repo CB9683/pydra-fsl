@@ -37,7 +37,7 @@ outputs:
   # from the nipype interface, but you may want to be more specific, particularly
   # for file types, where specifying the format also specifies the file that will be
   # passed to the field in the automatically generated unittests.
-    out_file: generic/file
+    out_file: Path # generic/file
     # type=file: image written after calculations
     # type=file|default=<undefined>: image to write
   callables:
@@ -58,16 +58,16 @@ tests:
     # type=file|default=<undefined>: binary image defining mask space
     in_file:
     # type=file|default=<undefined>: image to operate on
-    out_file:
+    # out_file:
     # type=file: image written after calculations
     # type=file|default=<undefined>: image to write
     internal_datatype:
     # type=enum|default='float'|allowed['char','double','float','input','int','short']: datatype to use for calculations (default is float)
     output_datatype:
     # type=enum|default='float'|allowed['char','double','float','input','int','short']: datatype to use for output (default uses input type)
-    nan2zeros:
+    nan2zeros: "False"
     # type=bool|default=False: change NaNs to zeros before doing anything
-    output_type:
+    output_type: "'NIFTI'"
     # type=enum|default='NIFTI'|allowed['NIFTI','NIFTI_GZ','NIFTI_PAIR','NIFTI_PAIR_GZ']: FSL output type
     args:
     # type=str|default='': Additional parameters to the command

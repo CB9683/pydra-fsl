@@ -103,24 +103,24 @@ tests:
 - inputs:
   # dict[str, str] - values to provide to inputs fields in the task initialisation
   # (if not specified, will try to choose a sensible value)
-    apply_xfm:
+    apply_xfm: "True"
     # type=bool|default=True: apply transformation supplied by in_matrix_file or uses_qform to use the affine matrix stored in the reference header
     in_file:
     # type=file|default=<undefined>: input file
     reference:
     # type=file|default=<undefined>: reference file
-    out_file:
+    # out_file:
     # type=file: path/name of registered file (if generated)
     # type=file|default=<undefined>: registered output file
-    out_matrix_file:
+    # out_matrix_file:
     # type=file: path/name of calculated affine transform (if generated)
     # type=file|default=<undefined>: output affine matrix in 4x4 asciii format
-    out_log:
+    # out_log:
     # type=file: path/name of output log (if generated)
     # type=file|default=<undefined>: output log
     in_matrix_file:
     # type=file|default=<undefined>: input 4x4 affine matrix
-    apply_isoxfm:
+    # apply_isoxfm: 0.0
     # type=float|default=0.0: as applyxfm but forces isotropic resampling
     datatype:
     # type=enum|default='char'|allowed['char','double','float','int','short']: force output data type
@@ -128,41 +128,41 @@ tests:
     # type=enum|default='mutualinfo'|allowed['bbr','corratio','labeldiff','leastsq','mutualinfo','normcorr','normmi']: cost function
     cost_func:
     # type=enum|default='mutualinfo'|allowed['bbr','corratio','labeldiff','leastsq','mutualinfo','normcorr','normmi']: cost function
-    uses_qform:
+    uses_qform: "False"
     # type=bool|default=False: initialize using sform or qform
-    display_init:
+    display_init: "False"
     # type=bool|default=False: display initial matrix
-    angle_rep:
+    angle_rep: "'quaternion'"
     # type=enum|default='quaternion'|allowed['euler','quaternion']: representation of rotation angles
-    interp:
+    interp: "'trilinear'"
     # type=enum|default='trilinear'|allowed['nearestneighbour','sinc','spline','trilinear']: final interpolation method used in reslicing
-    sinc_width:
+    sinc_width: 0
     # type=int|default=0: full-width in voxels
-    sinc_window:
+    sinc_window: "'rectangular'"
     # type=enum|default='rectangular'|allowed['blackman','hanning','rectangular']: sinc window
-    bins:
+    bins: 0
     # type=int|default=0: number of histogram bins
-    dof:
+    dof: 0
     # type=int|default=0: number of transform degrees of freedom
-    no_resample:
+    no_resample: "False"
     # type=bool|default=False: do not change input sampling
-    force_scaling:
+    force_scaling: "False"
     # type=bool|default=False: force rescaling even for low-res images
-    min_sampling:
+    min_sampling: 0.0
     # type=float|default=0.0: set minimum voxel dimension for sampling
-    padding_size:
+    padding_size: 0
     # type=int|default=0: for applyxfm: interpolates outside image by size
-    searchr_x:
+    searchr_x: []
     # type=list|default=[]: search angles along x-axis, in degrees
-    searchr_y:
+    searchr_y: []
     # type=list|default=[]: search angles along y-axis, in degrees
-    searchr_z:
+    searchr_z: []
     # type=list|default=[]: search angles along z-axis, in degrees
-    no_search:
+    no_search: "False"
     # type=bool|default=False: set all angular searches to ranges 0 to 0
-    coarse_search:
+    coarse_search: 0
     # type=int|default=0: coarse search delta angle
-    fine_search:
+    fine_search: 0
     # type=int|default=0: fine search delta angle
     schedule:
     # type=file|default=<undefined>: replaces default schedule
@@ -170,19 +170,19 @@ tests:
     # type=file|default=<undefined>: File for reference weighting volume
     in_weight:
     # type=file|default=<undefined>: File for input weighting volume
-    no_clamp:
+    no_clamp: "False"
     # type=bool|default=False: do not use intensity clamping
-    no_resample_blur:
+    no_resample_blur: "False"
     # type=bool|default=False: do not use blurring on downsampling
-    rigid2D:
+    rigid2D: "False"
     # type=bool|default=False: use 2D rigid body mode - ignores dof
-    save_log:
+    save_log: "False"
     # type=bool|default=False: save to log file
-    verbose:
+    verbose: 0
     # type=int|default=0: verbose mode, 0 is least
-    bgvalue:
+    bgvalue: 0
     # type=float|default=0: use specified background value for points outside FOV
-    wm_seg:
+    wm_seg: 
     # type=file|default=<undefined>: white matter segmentation volume needed by BBR cost function
     wmcoords:
     # type=file|default=<undefined>: white matter boundary coordinates for BBR cost function
@@ -192,19 +192,19 @@ tests:
     # type=file|default=<undefined>: fieldmap image in rads/s - must be already registered to the reference image
     fieldmapmask:
     # type=file|default=<undefined>: mask for fieldmap image
-    pedir:
+    pedir: 0
     # type=int|default=0: phase encode direction of EPI - 1/2/3=x/y/z & -1/-2/-3=-x/-y/-z
-    echospacing:
+    echospacing: 0.0
     # type=float|default=0.0: value of EPI echo spacing - units of seconds
-    bbrtype:
+    bbrtype: "'enum'"
     # type=enum|default='signed'|allowed['global_abs','local_abs','signed']: type of bbr cost function: signed [default], global_abs, local_abs
-    bbrslope:
+    bbrslope: 0.0
     # type=float|default=0.0: value of bbr slope
-    output_type:
+    output_type: "'NIFTI'"
     # type=enum|default='NIFTI'|allowed['NIFTI','NIFTI_GZ','NIFTI_PAIR','NIFTI_PAIR_GZ']: FSL output type
-    args:
+    args: "''"
     # type=str|default='': Additional parameters to the command
-    environ:
+    environ: 
     # type=dict|default={}: Environment variables
   imports:
   # list[nipype2pydra.task.importstatement] - list import statements required by the test, with each list item

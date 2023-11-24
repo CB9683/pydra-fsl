@@ -33,7 +33,7 @@ inputs:
   # from the nipype interface, but you may want to be more specific, particularly
   # for file types, where specifying the format also specifies the file that will be
   # passed to the field in the automatically generated unittests.
-    in_file: generic/file
+    in_file: medimage/nifti-gz
     # type=file|default=<undefined>: image to be warped
     ref_file: generic/file
     # type=file|default=<undefined>: reference image
@@ -77,20 +77,20 @@ tests:
   # (if not specified, will try to choose a sensible value)
     in_file:
     # type=file|default=<undefined>: image to be warped
-    out_file:
+    # out_file:
     # type=file: Warped output file
     # type=file|default=<undefined>: output filename
     ref_file:
     # type=file|default=<undefined>: reference image
     field_file:
     # type=file|default=<undefined>: file containing warp field
-    abswarp:
+    # abswarp:
     # type=bool|default=False: treat warp field as absolute: x' = w(x)
-    relwarp:
+    # relwarp:
     # type=bool|default=False: treat warp field as relative: x' = x + w(x)
     datatype:
     # type=enum|default='char'|allowed['char','double','float','int','short']: Force output data type [char short int float double].
-    supersample:
+    # supersample:
     # type=bool|default=False: intermediary supersampling of output, default is off
     superlevel:
     # type=traitcompound|default=None: level of intermediary supersampling, a for 'automatic' or integer level. Default = 2
